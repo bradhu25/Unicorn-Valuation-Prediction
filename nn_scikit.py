@@ -28,5 +28,5 @@ def main(file_path, save_path):
 
 if __name__ == '__main__':
     # edit
-    main(file_path='pitchbook_data.csv',
+    main(file_path='cleaned_data.csv',
          save_path='logreg_pred.txt')
