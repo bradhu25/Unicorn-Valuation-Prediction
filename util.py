@@ -18,7 +18,7 @@ def add_intercept(x):
     return new_x
 
 
-def load_dataset(csv_path, label_col='Unicorn Status', add_intercept=False):
+def load_dataset(csv_path, label_col, add_intercept=False):
     """Load dataset from a CSV file.
 
     Args:
@@ -48,7 +48,6 @@ def load_dataset(csv_path, label_col='Unicorn Status', add_intercept=False):
     # Load features and labels
     non_inputs= ['Company ID', 'Companies', 'Emerging Spaces' , 'Primary Industry Code', label_col]
     x_cols = [i for i in range(len(headers)) if headers[i] not in non_inputs]
-    print(x_cols)
     l_cols = [i for i in range(len(headers)) if headers[i] == label_col]
     inputs = np.loadtxt(csv_path, delimiter=',', skiprows=1, usecols=x_cols)
     labels = np.loadtxt(csv_path, delimiter=',', skiprows=1, usecols=l_cols)

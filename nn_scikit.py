@@ -11,8 +11,8 @@ def main(file_path, save_path):
         valid_path: Path to CSV file containing dataset for validation.
         save_path: Path to save predicted probabilities using np.savetxt().
     """
-    X, Y = util.load_dataset(file_path, add_intercept=True)
-    x_train, y_train, x_eval, y_eval = train_test_split(X, Y, random_state=1)
+    X, Y = util.load_dataset(file_path, label_col='Unicorn Status', add_intercept=True)
+    x_train, x_eval, y_train, y_eval = train_test_split(X, Y, random_state=1)
 
     # activation: use either 'logistic' (sigmoid), or 'relu'
     # hidden layer size: 2 layers each with 100 units
