@@ -46,7 +46,7 @@ def load_dataset(csv_path, label_col, add_intercept=False):
         headers = csv_fh.readline().strip().split(',')
 
     # Load features and labels
-    non_inputs= ['Company ID', 'Companies', 'Emerging Spaces' , 'Primary Industry Code', label_col]
+    non_inputs= ['Company ID', 'Companies', 'Emerging Spaces' , 'Primary Industry Code', 'Unicorn Status', 'Last Known Valuation']
     x_cols = [i for i in range(len(headers)) if headers[i] not in non_inputs]
     l_cols = [i for i in range(len(headers)) if headers[i] == label_col]
     inputs = np.loadtxt(csv_path, delimiter=',', skiprows=1, usecols=x_cols)
