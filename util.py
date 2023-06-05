@@ -88,3 +88,10 @@ def plot(x, y, theta, save_path, correction=1.0):
     plt.xlabel('x1')
     plt.ylabel('x2')
     plt.savefig(save_path)
+
+# plot basic (x, y, class)
+def scatter_plot(x, y, save_path):
+    plt.figure()
+    plt.scatter(x, y)
+    plt.savefig(save_path)
+# plot distribution of one class
