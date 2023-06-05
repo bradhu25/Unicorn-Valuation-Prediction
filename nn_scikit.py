@@ -27,6 +27,7 @@ def uni_regression(file_path, model, save_path):
     print("\n")
 
     np.savetxt(save_path, pred)
+    
 
 def uni_classification(file_path, model, save_path):
     X, Y = util.load_dataset(file_path, label_col='Unicorn Status', add_intercept=True)
