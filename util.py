@@ -1,5 +1,9 @@
 import matplotlib.pyplot as plt
+from matplotlib import colors
+from matplotlib.ticker import PercentFormatter
 import numpy as np
+import seaborn as sns
+
 
 
 def add_intercept(x):
@@ -88,3 +92,19 @@ def plot(x, y, theta, save_path, correction=1.0):
     plt.xlabel('x1')
     plt.ylabel('x2')
     plt.savefig(save_path)
+
+# plot basic (x, y, class)
+def scatter_plot(x, y, save_path):
+    plt.figure()
+    plt.scatter(x, y)
+    plt.savefig(save_path)
+
+# plot distribution of one class
+def histogram(data, bins, save_path):
+    plt.figure()
+    plt.hist(data, bins=bins, color='lightgreen', ec='black')
+    plt.savefig(save_path)
+
+def density_histogram(data, bins, save_path):
+    dis_plot = sns.displot(data, kde=True, bins=bins, color='lightgreen')
+    dis_plot.figure.savefig(save_path)
