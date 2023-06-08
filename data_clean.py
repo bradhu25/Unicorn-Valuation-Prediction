@@ -2,19 +2,15 @@ import pandas as pd
 
 df = pd.read_csv('PitchBook - Morningstar - Unicorn prediction data.csv')
 
-print(df[df['Round Entity ID'] == 587392]['Deal Type 2'])
+print(df.loc[95]['Deal Type 2'])
 
 # print(df[df['Round Entity ID'] == 587392]['Deal Type 2'])
 
-for i in df.shape[0]:
-    print
+for i in range(df.shape[0]):
+    if df.loc[i]['Deal Type 2'].startswith('Series A'):
+        df.loc[i]['Deal Type 2'] = 'Series A'
 
-print(df['Deal Type 2'])
-
-if df['Deal Type 2'].startswith('Series A'):
-    df['Deal Type 2'] = 'Series A'
-
-print(df[df['Round Entity ID'] == 587392]['Deal Type 2'])
+print(df.loc[95]['Deal Type 2'])
 
 # df['Emerging Spaces'] = df['Emerging Spaces'].fillna(0)
 # df = df.dropna()
@@ -30,4 +26,4 @@ print(df[df['Round Entity ID'] == 587392]['Deal Type 2'])
 
 # df['Unicorn Status'] = 1 * (df['Last Known Valuation'] >= 1000)
 
-df.to_csv('cleaned_data.csv', index=False)
+# df.to_csv('cleaned_data.csv', index=False)
