@@ -40,7 +40,7 @@ def load_dataset(csv_path, label_col, exclude_cols, add_intercept=False):
         return add_intercept(x)
 
     # Validate label_col argument
-    allowed_label_cols = ('Unicorn Status', 'Last Known Valuation')
+    allowed_label_cols = ('IsUnicorn')
     if label_col not in allowed_label_cols:
         raise ValueError('Invalid label_col: {} (expected {})'
                          .format(label_col, allowed_label_cols))
