@@ -53,6 +53,7 @@ data_frames = {'three': three_or_more, 'two': two_or_more}
 
 for name in data_frames:
     data = data_frames[name]
+    print(data.shape)
     unicorn_dist = (data['IsUnicorn'].value_counts())
     print(name, '/n', unicorn_dist)
     plt.bar(unicorn_dist.index, unicorn_dist.values)

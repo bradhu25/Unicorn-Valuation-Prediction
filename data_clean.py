@@ -6,6 +6,8 @@ df = pd.read_csv('PitchBook - Morningstar - Unicorn prediction data.csv')
 # remove extra empty columns
 df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
 
+print(df.shape)
+
 # keep only features we are including
 identifiers = ['Round Entity ID',
                'Business Entity ID']
