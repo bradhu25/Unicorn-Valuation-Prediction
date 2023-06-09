@@ -140,4 +140,6 @@ print(df.shape)
 df = df.dropna()
 print(df.shape)
 
+# get rid of angel
+
 df.to_csv('cleaned_data.csv', index=False)
