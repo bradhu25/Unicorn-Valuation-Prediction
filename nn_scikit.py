@@ -8,6 +8,15 @@ import util
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.linear_model import SGDClassifier
+from sklearn.preprocessing import StandardScaler  
+
+# PERCEPTRON IS SENSITIVE TO SCALE
+# scaler = StandardScaler()  
+#  # Don't cheat - fit only on training data
+# scaler.fit(X_train)  
+# X_train = scaler.transform(X_train)  
+# # apply same transformation to test data
+# X_test = scaler.transform(X_test)  
 
 def uni_regression(file_path, model, save_path):
     X, Y = util.load_dataset(file_path, label_col='Last Known Valuation', add_intercept=True)
