@@ -21,7 +21,7 @@ random.seed(42)
 
 # Define categorical and numeric features
 categorical = ["Industry_Sector", "Industry_Group", "Industry_Code",  "Global_Region",  "City", "Country", "Deal_Type", "Deal_Type_2", "Deal_Type_1", "Deal_Type_2_1"]
-numeric = ["First_Unicorn_Round_Flag", "Close_Date", "_Deal_Size__millions__", "Mega_Deal_", "Pre_Value__millions_", 
+numeric = ["Close_Date", "_Deal_Size__millions__", "Mega_Deal_", "Pre_Value__millions_", 
             "Post_Value__millions_", "Traditional_VC_Investor_Count", "Non_Traditional_VC_Investor_Count", "US_Investor_Count", "Europe_Investor_Count", 
             "Female_Founder_Count", "Investor_Count", "CVC_Investor_Involvement", "PE_Investor_Involvement", "Hedge_Fund_Investor_Involvement", 
             "Asset_Manager_Investor_Involvement", "Government_SWF_Investor_Involvement", "Number_of_Lead_Investors_on_Deal", 

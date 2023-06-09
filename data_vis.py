@@ -42,7 +42,7 @@ deals = {'one': exactly_one_deal,
          'four': exactly_four_deals,
          'five or more': five_or_more_deals}
 
-plt.bar(range(len(deals)), list(deals.values()), tick_label=list(deals.keys()))
+plt.bar(range(len(deals)), list(deals.values()), tick_label=list(deals.keys()), color='red')
 plt.savefig('./plots/early_exact_counts.png')
 plt.close()
 
@@ -55,8 +55,8 @@ for name in data_frames:
     data = data_frames[name]
     print(data.shape)
     unicorn_dist = (data['IsUnicorn'].value_counts())
-    print(name, '/n', unicorn_dist)
-    plt.bar(unicorn_dist.index, unicorn_dist.values)
+    print(name, '\n', unicorn_dist)
+    plt.bar(unicorn_dist.index, unicorn_dist.values, color='green')
     save_path = './plots/unicorn_dist_' + name + '.png'
     plt.savefig(save_path)
     plt.close()

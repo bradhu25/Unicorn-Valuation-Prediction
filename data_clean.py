@@ -59,6 +59,7 @@ round_identifiers = ['Deal Type',
 # only keep above columns
 keep = identifiers + labels_features + round_features + business_features + round_identifiers
 df = df[keep]
+print(df.shape)
 
 # fix var types
 df[' Deal Size (millions) '] = pd.to_numeric(df[' Deal Size (millions) '], errors='coerce')
