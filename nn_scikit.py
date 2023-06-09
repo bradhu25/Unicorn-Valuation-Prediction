@@ -18,9 +18,7 @@ from sklearn.preprocessing import StandardScaler
 # # apply same transformation to test data
 # X_test = scaler.transform(X_test)  
 
-def uni_regression(file_path, model, save_path):
-    X, Y = util.load_dataset(file_path, label_col='Last Known Valuation', add_intercept=True)
-    x_train, x_eval, y_train, y_eval = train_test_split(X, Y, random_state=1)
+def uni_regression(model, save_path, x_train, x_eval, y_train, y_eval):
 
     # activation: use either 'logistic' (sigmoid), or 'relu'
     # hidden layer size: 2 layers each with 100 units
@@ -38,9 +36,7 @@ def uni_regression(file_path, model, save_path):
     np.savetxt(save_path, pred)
     
 
-def uni_classification(file_path, model, save_path):
-    X, Y = util.load_dataset(file_path, label_col='Unicorn Status', add_intercept=True)
-    x_train, x_eval, y_train, y_eval = train_test_split(X, Y, random_state=1)
+def uni_classification(model, save_path, x_train, x_eval, y_train, y_eval):
 
     if model == "Logistic Regression":
         nn = LogisticRegression()
@@ -66,7 +62,17 @@ def main(file_path, save_path):
         valid_path: Path to CSV file containing dataset for validation.
         save_path: Path to save predicted probabilities using np.savetxt().
     """
-
+    exclude =["Business_Entity_ID",
+              "Industry Sector",
+              "Industry Group",
+              "Industry Code",
+              "Global Region",
+              "City",
+              "Country",
+              "Deal_Type",
+              "Deal_Type_2"]
+    X, Y = util.load_dataset(file_path, label_col='IsUnicorn', exclude_cols=exclude, add_intercept=True)
+    x_train, x_eval, y_train, y_eval = train_test_split(X, Y, random_state=1)
     methods = {"Regression": ["MLPRegressor"], "Classification": ["Logistic Regression", "SVC", "SGDClassifier"]}
 
     for method in methods:
@@ -74,11 +80,11 @@ def main(file_path, save_path):
         
         if method == "Regression":
             for model in models:
-                uni_regression(file_path, model, model + "_" + save_path)
+                uni_regression(model, model + "_" + save_path, x_train, x_eval, y_train, y_eval)
 
         if method == "Classification":
             for model in models:
-                uni_classification(file_path, model, model + "_" + save_path)
+                uni_classification(model, model + "_" + save_path, x_train, x_eval, y_train, y_eval)
 
 if __name__ == '__main__':
     # edit
