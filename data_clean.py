@@ -98,7 +98,6 @@ yes_no_cols = ['CVC Investor Involvement',
 for col in yes_no_cols:
     df[col] = df[col].eq('Yes').mul(1)
 
-
 # creating uniform series names in Deal Type 2
 # adding IsUnicorn column
 series_names = ['Series A', 'Series B', 'Series C', 'Series D', 'Series E', 'Series 1', 'Series 2', 'Series 3']
@@ -136,10 +135,14 @@ for i in range(df.shape[0]):
 df['Close Date'] = pd.DatetimeIndex(df['Close Date'])
 df['Close Date']= df['Close Date'].dt.year + ((df['Close Date'].dt.dayofyear - 1) / 365)
 
+# remove angel rounds
+print(df.shape)
+df = df[df['Deal Type'] != 'Angel (individual)']
+print(df.shape)
+
+# remove na
 print(df.shape)
 df = df.dropna()
 print(df.shape)
-
-# get rid of angel
 
 df.to_csv('cleaned_data.csv', index=False)

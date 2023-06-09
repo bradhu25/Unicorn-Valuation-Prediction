@@ -46,6 +46,20 @@ plt.bar(range(len(deals)), list(deals.values()), tick_label=list(deals.keys()))
 plt.savefig('./plots/early_exact_counts.png')
 plt.close()
 
+three_or_more = pd.read_csv('three_or_more_flattened.csv')
+two_or_more = pd.read_csv('two_or_more_stripped.csv')
+
+data_frames = {'three': three_or_more, 'two': two_or_more}
+
+for name in data_frames:
+    data = data_frames[name]
+    unicorn_dist = (data['IsUnicorn'].value_counts())
+    print(name, '/n', unicorn_dist)
+    plt.bar(unicorn_dist.index, unicorn_dist.values)
+    save_path = './plots/unicorn_dist_' + name + '.png'
+    plt.savefig(save_path)
+    plt.close()
+
 # scatter_plot(df['First Financing Date'], df['First Financing Valuation'], './plots/first_financing.png')
 # scatter_plot(df['Last Known Valuation Date'], df['Last Known Valuation'], './plots/last_valuation.png')
 
