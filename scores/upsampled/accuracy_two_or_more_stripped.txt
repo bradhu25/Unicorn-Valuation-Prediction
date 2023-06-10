@@ -1,0 +1,18 @@
+logistic_regression with embedding and upsampling data:
+Accuracy Score: 0.8110969154955284
+F1 Score: 0.07506702412868632
+logistic_regression with onehot and upsampling data:
+Accuracy Score: 0.8193100930826793
+F1 Score: 0.07649253731343283
+SVC with embedding and upsampling data:
+Accuracy Score: 0.6720204416864392
+F1 Score: 0.03749330476700589
+SVC with onehot and upsampling data:
+Accuracy Score: 0.4953458660339478
+F1 Score: 0.030164854437039635
+SGD with embedding and upsampling data:
+Accuracy Score: 0.7795218105493703
+F1 Score: 0.07076923076923076
+SGD with onehot and upsampling data:
+Accuracy Score: 0.7826245665267385
+F1 Score: 0.0702576112412178
