@@ -1,0 +1,18 @@
+logistic_regression with embedding and original data:
+Accuracy Score: 0.9895038167938931
+F1 Score: 0.0
+logistic_regression with onehot and original data:
+Accuracy Score: 0.9895038167938931
+F1 Score: 0.0
+SVC with embedding and original data:
+Accuracy Score: 0.9895038167938931
+F1 Score: 0.0
+SVC with onehot and original data:
+Accuracy Score: 0.9895038167938931
+F1 Score: 0.0
+SGD with embedding and original data:
+Accuracy Score: 0.9885496183206107
+F1 Score: 0.0
+SGD with onehot and original data:
+Accuracy Score: 0.9895038167938931
+F1 Score: 0.0
